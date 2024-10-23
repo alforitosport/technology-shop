@@ -1,0 +1,139 @@
+html, body {
+    height: 100%; /* Asegura que el html y el body ocupen toda la altura */
+    margin: 0; /* Elimina márgenes por defecto */
+}
+
+ /* Estilos generales */
+body {
+    margin: 0; /* Asegúrate de que no haya margen en el body */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    display: flex; /* Usamos flexbox para centrar el contenido */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    background-image: url('https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?cs=srgb&dl=pexels-stywo-1054218.jpg&fm=jpg'); /* Imagen de fondo */
+    background-size: cover; /* Asegura que la imagen cubra toda el área */
+    background-position: center; /* Centra la imagen */
+}
+
+.logo-container {
+    position: fixed; /* Fija el logo en la parte superior */
+    top: 20px; /* Distancia desde la parte superior */
+    left: 50%; /* Centra horizontalmente */
+    transform: translateX(-50%); /* Ajusta el logo para que esté completamente centrado */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.logo {
+    .logo {
+    width: 120 px;  /* Ajusta este valor según sea necesario */
+    height: 20px;  /* Mantiene la proporción original */
+    display: inline-flex; /* Asegura que la imagen sea tratada como un bloque */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+}
+
+/* Efecto de elevación al pasar el cursor */
+.logo:hover {
+    transform: scale(1.1); /* Eleva y agranda el logo al pasar el cursor */
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 600px; /* Ajusta el ancho máximo del contenedor */
+    margin: 100px auto; /* Centra el contenedor verticalmente y horizontalmente */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco con un poco de transparencia */
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos del encabezado */
+header {
+    background-color: rgba(53, 66, 74, 0.9); /* Fondo oscuro con transparencia */
+    color: #ffffff;
+    padding: 15px 0;
+    text-align: center;
+    border-radius: 15px 15px 0 0; /* Bordes redondeados en la parte superior */
+}
+
+/* Estilos del formulario */
+form {
+    padding: 20px;
+}
+
+/* Estilos de los campos del formulario */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #cccccc;
+    border-radius: 1px;
+}
+
+.botones-container {
+    display: flex; /* Flexbox para los botones */
+    flex-direction: column; /* Los botones estarán en columna */
+    align-items: center; /* Centra los botones horizontalmente */
+}
+
+button {
+    display: inline-block; /* Asegura que el botón ocupe solo el espacio necesario */
+    padding: 10px 20px; /* Espaciado interno para hacer el botón más grande */
+    font-size: 16px; /* Tamaño de fuente del texto del botón */
+    color: #fff; /* Color del texto */
+    background-color: rgba(53, 66, 74, 0.9); /* Color de fondo */
+    border: none; /* Sin borde */
+    border-radius: 10px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    margin: 10px 0; /* Margen vertical para separación entre botones */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para efecto al pasar el cursor */
+}
+
+/* Efecto al pasar el cursor */
+button:hover {
+    transform: translateY(-5px); /* Levanta el botón al pasar el cursor */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Agrega sombra */
+}
+
+/* Ancho máximo para los botones */
+button {
+    max-width: 200px; /* Ancho máximo del botón */
+    width: 100%; /* Para que se ajuste al contenedor */
+    text-align: center; /* Centra el texto dentro del botón */
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 0;
+    }
+
+    .container {
+        margin: 50px auto; /* Ajusta el margen en dispositivos pequeños */
+    }
+}
+
+
+/* Estilos para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+
+    header {
+        font-size: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 16px;
+    }
+}

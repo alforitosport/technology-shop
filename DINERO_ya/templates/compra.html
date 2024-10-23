@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <title>Metodo de paga</title>
+    <script>
+         // Función para obtener parámetros de la URL
+         function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                item: params.get('item'),
+                price: params.get('price')
+            };
+        }
+
+        function showSuccessMessage(event) {
+            event.preventDefault(); // Evitar el envío inmediato
+
+            // Obtener los parámetros de la URL
+            const { item, price } = getQueryParams();
+            // Mostrar el mensaje emergente con información de la compra
+            alert(`Compra de ${item} realizada correctamente por ${price}!`);
+            // Aquí puedes añadir lógica para enviar el formulario si es necesario
+            // document.forms[0].submit(); // Descomenta esta línea si deseas enviar el formulario después del mensaje
+        }
+    </script>
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --text-color :rgb(110, 110, 110);
+}
+
+
+body {
+            display: flex;
+            min-height: 100vh;
+            background-color: rgb(38, 36, 36);
+            align-items: center;
+            justify-content: center;
+            background-image: url(https://th.bing.com/th/id/OIP.OJmZVD4Cv0BDdDRg4VHInQHaEK?rs=1&pid=ImgDetMain);
+            background-size: cover; /* La imagen cubre completamente el fondo */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-position: center center; /* Centra la imagen */
+            background-attachment: fixed; /* Hace que la imagen permanezca fija al hacer scroll */
+            padding: 20px; /* Espacio alrededor del contenedor */
+        }
+
+
+
+        .container {
+            width: 100%; /* Ancho completo */
+            max-width: 350px; /* Ancho máximo */
+            background: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box; /* Incluye padding en el ancho total */
+        }
+
+h6{
+    font-size: 20px;
+    color: var(--text-color);
+}
+
+
+span{
+    position: absolute;
+    right: 34px;
+    top: 28px;
+    font-size: 18px;
+    color: var(--text-color);
+}
+
+
+h1 {
+            color: #333;
+            font-size: 24px; /* Tamaño de fuente ajustable */
+            text-align: center; /* Centra el texto */
+        }
+
+
+form label{
+    color: var(--text-color);
+    text-transform: uppercase;
+    position: relative;
+    font-size: 10px;
+    word-spacing: 4px;
+}
+
+
+form select{
+    width: 100%;
+    outline: none;
+    border:none;
+    border-bottom: 1px solid rgb(223, 223, 223);
+    text-transform: capitalize;
+    padding-top: 3px;
+    color: var(--text-color);
+    padding-bottom: 3px;
+    font-size: 18px;
+    margin-left: -3px;
+    margin-bottom: 20px;
+    background-color:transparent;
+
+}
+form #cardno{
+    width: 100%;
+    outline: none;
+    border:none;
+    border-bottom: 1px solid rgb(223, 223, 223);
+    padding-top: 5px;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    padding-right: 30px;
+    color: var(--text-color);
+    font-size: 18px;
+    background-color:transparent;
+}
+
+
+form label img{
+    position: absolute;
+    left: 264px;
+    top:17px;
+    width: 20px;
+    height: 20px;
+}
+
+
+.float{
+    display: flex;
+}
+
+
+
+#validtill, #cvv{
+    border: none;
+    border-bottom: 1px solid rgb(207, 207, 207);
+    outline: none;
+    width: 130px;
+    padding-top: 14px;
+    margin-bottom: 56px;
+    color: var(--text-color);
+    background-color:transparent;
+    font-size: 18px;
+}
+
+
+p {
+            font-size: 19px; /* Tamaño de fuente ajustable */
+            text-align: center; /* Centra el texto */
+        }
+
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 20px; /* Ajusta el tamaño de la fuente en pantallas pequeñas */
+            }
+
+            p {
+                font-size: 14px; /* Ajusta el tamaño de la fuente en pantallas pequeñas */
+            }
+
+            .container {
+                padding: 15px; /* Ajusta el padding en pantallas pequeñas */
+            }
+        }
+
+
+button{
+    border: none;
+    outline: none;
+    background: rgb(111, 111, 111);
+    color: rgb(31, 30, 30);
+    width: 100%;
+    height:40px;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 20px;
+}
+</style>
+<body>
+    <div class="container">
+        <h6>Checkout</h6>
+        <span>x</span>
+        <h1>Metodo de pago</h1>
+        
+        <form action="/comprar" method="POST" onsubmit="showSuccessMessage(event)">
+            <!-- Nombre -->
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <!-- Email -->
+            <label for="email">Correo Electrónico:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <!-- Contraseña -->
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <!-- País -->
+            <label for="country">País:</label>
+            <select name="country" id="country">
+                <option value="Estados Unidos">Estados Unidos</option>
+                <option value="england">Inglaterra</option>
+                <option value="india">India</option>
+                <option value="Dominican Republic">República Dominicana</option>
+                <option value="Puerto Rico"> Puerto Rico</option>
+                <option value="Cuba">Cuba</option>
+            </select>
+            
+            <!-- Tarjeta -->
+            <label for="cardno">Número de Tarjeta:</label>
+            <input type="text" id="cardno" name="card_number" maxlength="19" required onkeypress="cardspace()">
+            
+            <div class="float">
+                <!-- Fecha de Expiración -->
+                <label for="validtill">Fecha de Expiración (MM/AA):</label>
+                <input type="text" id="validtill" name="exp_date" maxlength="7" placeholder="MM/AA" required onkeypress="addSlashes()">
+                
+                <!-- CVV -->
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" maxlength="3" required>
+            </div>
+            
+            <!-- Checkbox de Dirección -->
+            <label for="checkbox">
+                <input type="checkbox" id="checkbox" name="checkbox">
+                <p>La dirección de pago es la misma que la dirección de entrega</p>
+            </label> 
+            
+            <!-- Botón de Enviar -->
+            <button type="submit">Pagar</button>
+        </form>
+    </div>
+
+<!-- Script para formateo de tarjeta y fecha -->
+<script src="script.js">
+      function cardspace() {
+        var carddigit = document.getElementById('cardno').value;
+        if (carddigit.length == 4 || carddigit.length == 9 || carddigit.length == 14) {
+            document.getElementById('cardno').value = carddigit + ' ';
+        }
+    }
+
+    function addSlashes() {
+        var expire_date = document.getElementById('validtill').value;
+        if (expire_date.length == 2) {
+            document.getElementById('validtill').value = expire_date + '/';
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Ejecutar Flask",
+            "type": "python",
+            "request": "launch",
+            "module": "flask",
+            "args": [
+                "run",
+                "--no-debugger",
+                "--no-reload"
+            ],
+            "env": {
+                "FLASK_APP": "main.py"
+            },
+            "console": "integratedTerminal"
+        }
+    ]
+}
